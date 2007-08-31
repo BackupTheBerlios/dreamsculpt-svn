@@ -19,7 +19,7 @@ class ARPProcessor : public QThread {
 	void run() {
 		while(true) {
 			double nextnote = mid->updateArpeggiators();
-			if(tme == 0){
+			if(nextnote == 0){
 				usleep(1000);
 			} else {
 				usleep((unsigned long)((nextnote - tme()) * 1000000));

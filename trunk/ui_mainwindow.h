@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Mon Apr 9 22:24:49 2007
-**      by: Qt User Interface Compiler version 4.2.2
+** Created: Fri Aug 31 14:14:39 2007
+**      by: Qt User Interface Compiler version 4.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 ********************************************************************************/
@@ -67,7 +67,9 @@ public:
 
     void setupUi(QMainWindow *MainWindow)
     {
-    MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+    if (MainWindow->objectName().isEmpty())
+        MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
+    MainWindow->resize(570, 498);
     MainWindow->setWindowIcon(QIcon(QString::fromUtf8(":/new/prefix1/icon.png")));
     actionQuit = new QAction(MainWindow);
     actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
@@ -84,8 +86,12 @@ public:
     centralwidget = new QWidget(MainWindow);
     centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
     hboxLayout = new QHBoxLayout(centralwidget);
+#ifndef Q_OS_MAC
     hboxLayout->setSpacing(6);
+#endif
+#ifndef Q_OS_MAC
     hboxLayout->setMargin(9);
+#endif
     hboxLayout->setObjectName(QString::fromUtf8("hboxLayout"));
     frame = new QFrame(centralwidget);
     frame->setObjectName(QString::fromUtf8("frame"));
@@ -97,7 +103,9 @@ public:
     frame->setFrameShape(QFrame::NoFrame);
     frame->setFrameShadow(QFrame::Raised);
     vboxLayout = new QVBoxLayout(frame);
+#ifndef Q_OS_MAC
     vboxLayout->setSpacing(6);
+#endif
     vboxLayout->setMargin(0);
     vboxLayout->setObjectName(QString::fromUtf8("vboxLayout"));
     upperFrame = new QFrame(frame);
@@ -110,16 +118,17 @@ public:
     upperFrame->setFrameShape(QFrame::StyledPanel);
     upperFrame->setFrameShadow(QFrame::Raised);
     hboxLayout1 = new QHBoxLayout(upperFrame);
+#ifndef Q_OS_MAC
     hboxLayout1->setSpacing(6);
+#endif
+#ifndef Q_OS_MAC
     hboxLayout1->setMargin(9);
+#endif
     hboxLayout1->setObjectName(QString::fromUtf8("hboxLayout1"));
     bypassButton = new QPushButton(upperFrame);
     bypassButton->setObjectName(QString::fromUtf8("bypassButton"));
-    QSizePolicy sizePolicy2(static_cast<QSizePolicy::Policy>(1), static_cast<QSizePolicy::Policy>(1));
-    sizePolicy2.setHorizontalStretch(0);
-    sizePolicy2.setVerticalStretch(0);
-    sizePolicy2.setHeightForWidth(bypassButton->sizePolicy().hasHeightForWidth());
-    bypassButton->setSizePolicy(sizePolicy2);
+    sizePolicy1.setHeightForWidth(bypassButton->sizePolicy().hasHeightForWidth());
+    bypassButton->setSizePolicy(sizePolicy1);
     bypassButton->setCheckable(true);
     bypassButton->setDefault(false);
     bypassButton->setFlat(false);
@@ -128,11 +137,11 @@ public:
 
     tempoBox = new QSpinBox(upperFrame);
     tempoBox->setObjectName(QString::fromUtf8("tempoBox"));
-    QSizePolicy sizePolicy3(static_cast<QSizePolicy::Policy>(4), static_cast<QSizePolicy::Policy>(0));
-    sizePolicy3.setHorizontalStretch(0);
-    sizePolicy3.setVerticalStretch(0);
-    sizePolicy3.setHeightForWidth(tempoBox->sizePolicy().hasHeightForWidth());
-    tempoBox->setSizePolicy(sizePolicy3);
+    QSizePolicy sizePolicy2(static_cast<QSizePolicy::Policy>(4), static_cast<QSizePolicy::Policy>(0));
+    sizePolicy2.setHorizontalStretch(0);
+    sizePolicy2.setVerticalStretch(0);
+    sizePolicy2.setHeightForWidth(tempoBox->sizePolicy().hasHeightForWidth());
+    tempoBox->setSizePolicy(sizePolicy2);
     tempoBox->setMinimumSize(QSize(50, 0));
     tempoBox->setMaximum(300);
     tempoBox->setMinimum(20);
@@ -148,8 +157,12 @@ public:
     frame_2->setFrameShape(QFrame::Panel);
     frame_2->setFrameShadow(QFrame::Raised);
     vboxLayout1 = new QVBoxLayout(frame_2);
+#ifndef Q_OS_MAC
     vboxLayout1->setSpacing(6);
+#endif
+#ifndef Q_OS_MAC
     vboxLayout1->setMargin(9);
+#endif
     vboxLayout1->setObjectName(QString::fromUtf8("vboxLayout1"));
     arpBox = new QListWidget(frame_2);
     arpBox->setObjectName(QString::fromUtf8("arpBox"));
@@ -161,8 +174,12 @@ public:
     frame_3->setFrameShape(QFrame::StyledPanel);
     frame_3->setFrameShadow(QFrame::Raised);
     hboxLayout2 = new QHBoxLayout(frame_3);
+#ifndef Q_OS_MAC
     hboxLayout2->setSpacing(6);
+#endif
+#ifndef Q_OS_MAC
     hboxLayout2->setMargin(9);
+#endif
     hboxLayout2->setObjectName(QString::fromUtf8("hboxLayout2"));
     upButton = new QPushButton(frame_3);
     upButton->setObjectName(QString::fromUtf8("upButton"));
@@ -190,8 +207,12 @@ public:
     frame_4->setFrameShape(QFrame::StyledPanel);
     frame_4->setFrameShadow(QFrame::Raised);
     hboxLayout3 = new QHBoxLayout(frame_4);
+#ifndef Q_OS_MAC
     hboxLayout3->setSpacing(6);
+#endif
+#ifndef Q_OS_MAC
     hboxLayout3->setMargin(9);
+#endif
     hboxLayout3->setObjectName(QString::fromUtf8("hboxLayout3"));
     pauseButton = new QPushButton(frame_4);
     pauseButton->setObjectName(QString::fromUtf8("pauseButton"));
@@ -231,8 +252,12 @@ public:
     frame_5->setFrameShape(QFrame::StyledPanel);
     frame_5->setFrameShadow(QFrame::Raised);
     vboxLayout2 = new QVBoxLayout(frame_5);
+#ifndef Q_OS_MAC
     vboxLayout2->setSpacing(6);
+#endif
+#ifndef Q_OS_MAC
     vboxLayout2->setMargin(9);
+#endif
     vboxLayout2->setObjectName(QString::fromUtf8("vboxLayout2"));
     label = new QLabel(frame_5);
     label->setObjectName(QString::fromUtf8("label"));
@@ -276,11 +301,6 @@ public:
     menuHelp_2->addAction(actionAbout);
 
     retranslateUi(MainWindow);
-
-    QSize size(570, 498);
-    size = size.expandedTo(MainWindow->minimumSizeHint());
-    MainWindow->resize(size);
-
     QObject::connect(actionQuit, SIGNAL(activated()), MainWindow, SLOT(close()));
     QObject::connect(pauseButton, SIGNAL(toggled(bool)), noteCombo, SLOT(setDisabled(bool)));
 
