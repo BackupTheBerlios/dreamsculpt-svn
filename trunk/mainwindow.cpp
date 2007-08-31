@@ -17,7 +17,10 @@ void MainWindow::redrawBox() {
 		QString label;
 		label += QString::number(arp[i].length, 'g', 2);
 		label += "  --  ";
-		label += QString::number(arp[i].note);
+		if(arp[i].pause)
+			label += "P";
+		else
+			label += QString::number(arp[i].note);
 		arpBox->addItem(label);
 	}
 	mid->setPattern(arp);

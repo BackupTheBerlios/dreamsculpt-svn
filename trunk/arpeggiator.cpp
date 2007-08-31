@@ -11,7 +11,8 @@ Arpeggiator::Arpeggiator(int note, int velocity, int channel, int tempo, QList<A
 	cnote = 0;
 
 	// Trigger first note
-	mid->noteOn(channel, note + pattern[cnote].note, velocity);
+	if(!pattern[cnote].pause)
+		mid->noteOn(channel, note + pattern[cnote].note, velocity);
 	
 	// Calculate time until next next note change
 	nextnote = calcNextNote(tme());
@@ -26,14 +27,17 @@ double Arpeggiator::update() {
 	if(tme() < nextnote)
 		return nextnote;
 
-	mid->noteOff(channel, note + pattern[cnote].note);
+	if(!pattern[cnote].pause)
+		mid->noteOff(channel, note + pattern[cnote].note);
 
 	if(cnote + 1 >= pattern.size())
 		cnote = 0;
 	else
 		cnote++;
 
-	mid->noteOn(channel, note + pattern[cnote].note, velocity);
+	if(!pattern[cnote].pause)
+		mid->noteOn(channel, note + pattern[cnote].note, velocity);
+
 	nextnote = calcNextNote(nextnote);
 	return nextnote;
 }

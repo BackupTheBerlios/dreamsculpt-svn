@@ -12,6 +12,7 @@ inline double tme() {
 struct ArpNote {
 	double length;
 	int note;
+	bool pause;
 };
 
 class Arpeggiator {

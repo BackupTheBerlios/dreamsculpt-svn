@@ -96,6 +96,7 @@ class MainWindow : public QMainWindow, private Ui::MainWindow {
 		ArpNote note;
 		note.length = 2.0 / pow(2, lengthCombo->currentIndex());
 		note.note = noteCombo->value();
+		note.pause = pauseButton->isChecked();
 		arp.push_back(note);
 		redrawBox();
 	}
