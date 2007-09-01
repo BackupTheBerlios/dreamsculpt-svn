@@ -2,10 +2,12 @@
 #include <unistd.h>
 #include "alsamidi.h"
 #include "mainwindow.h"
+#include "scale.h"
 #include <QThread>
 #include <QDir>
 
 AlsaMidi *mid = new AlsaMidi();
+ScaleFinder *sf = new ScaleFinder();
 
 class MIDIProcessor : public QThread {
 	public: 

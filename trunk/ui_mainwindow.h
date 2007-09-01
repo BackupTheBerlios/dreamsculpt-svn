@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Fri Aug 31 14:14:39 2007
-**      by: Qt User Interface Compiler version 4.3.1
+** Created: Sat Sep 1 22:24:28 2007
+**      by: Qt User Interface Compiler version 4.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 ********************************************************************************/
@@ -43,16 +43,21 @@ public:
     QHBoxLayout *hboxLayout1;
     QPushButton *bypassButton;
     QSpinBox *tempoBox;
+    QFrame *frame_6;
+    QHBoxLayout *hboxLayout2;
+    QComboBox *scaleRoot;
+    QComboBox *scaleType;
+    QComboBox *scaleMode;
     QFrame *frame_2;
     QVBoxLayout *vboxLayout1;
     QListWidget *arpBox;
     QFrame *frame_3;
-    QHBoxLayout *hboxLayout2;
+    QHBoxLayout *hboxLayout3;
     QPushButton *upButton;
     QPushButton *downButton;
     QPushButton *deleteButton;
     QFrame *frame_4;
-    QHBoxLayout *hboxLayout3;
+    QHBoxLayout *hboxLayout4;
     QPushButton *pauseButton;
     QSpinBox *noteCombo;
     QComboBox *lengthCombo;
@@ -69,7 +74,9 @@ public:
     {
     if (MainWindow->objectName().isEmpty())
         MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-    MainWindow->resize(570, 498);
+    QSize size(570, 498);
+    size = size.expandedTo(MainWindow->minimumSizeHint());
+    MainWindow->resize(size);
     MainWindow->setWindowIcon(QIcon(QString::fromUtf8(":/new/prefix1/icon.png")));
     actionQuit = new QAction(MainWindow);
     actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
@@ -86,16 +93,12 @@ public:
     centralwidget = new QWidget(MainWindow);
     centralwidget->setObjectName(QString::fromUtf8("centralwidget"));
     hboxLayout = new QHBoxLayout(centralwidget);
-#ifndef Q_OS_MAC
     hboxLayout->setSpacing(6);
-#endif
-#ifndef Q_OS_MAC
-    hboxLayout->setMargin(9);
-#endif
     hboxLayout->setObjectName(QString::fromUtf8("hboxLayout"));
+    hboxLayout->setContentsMargins(9, 9, 9, 9);
     frame = new QFrame(centralwidget);
     frame->setObjectName(QString::fromUtf8("frame"));
-    QSizePolicy sizePolicy(static_cast<QSizePolicy::Policy>(4), static_cast<QSizePolicy::Policy>(1));
+    QSizePolicy sizePolicy(QSizePolicy::Maximum, QSizePolicy::Minimum);
     sizePolicy.setHorizontalStretch(0);
     sizePolicy.setVerticalStretch(0);
     sizePolicy.setHeightForWidth(frame->sizePolicy().hasHeightForWidth());
@@ -103,14 +106,12 @@ public:
     frame->setFrameShape(QFrame::NoFrame);
     frame->setFrameShadow(QFrame::Raised);
     vboxLayout = new QVBoxLayout(frame);
-#ifndef Q_OS_MAC
     vboxLayout->setSpacing(6);
-#endif
-    vboxLayout->setMargin(0);
     vboxLayout->setObjectName(QString::fromUtf8("vboxLayout"));
+    vboxLayout->setContentsMargins(0, 0, 0, 0);
     upperFrame = new QFrame(frame);
     upperFrame->setObjectName(QString::fromUtf8("upperFrame"));
-    QSizePolicy sizePolicy1(static_cast<QSizePolicy::Policy>(1), static_cast<QSizePolicy::Policy>(1));
+    QSizePolicy sizePolicy1(QSizePolicy::Minimum, QSizePolicy::Minimum);
     sizePolicy1.setHorizontalStretch(0);
     sizePolicy1.setVerticalStretch(0);
     sizePolicy1.setHeightForWidth(upperFrame->sizePolicy().hasHeightForWidth());
@@ -118,13 +119,9 @@ public:
     upperFrame->setFrameShape(QFrame::StyledPanel);
     upperFrame->setFrameShadow(QFrame::Raised);
     hboxLayout1 = new QHBoxLayout(upperFrame);
-#ifndef Q_OS_MAC
     hboxLayout1->setSpacing(6);
-#endif
-#ifndef Q_OS_MAC
-    hboxLayout1->setMargin(9);
-#endif
     hboxLayout1->setObjectName(QString::fromUtf8("hboxLayout1"));
+    hboxLayout1->setContentsMargins(9, 9, 9, 9);
     bypassButton = new QPushButton(upperFrame);
     bypassButton->setObjectName(QString::fromUtf8("bypassButton"));
     sizePolicy1.setHeightForWidth(bypassButton->sizePolicy().hasHeightForWidth());
@@ -137,14 +134,14 @@ public:
 
     tempoBox = new QSpinBox(upperFrame);
     tempoBox->setObjectName(QString::fromUtf8("tempoBox"));
-    QSizePolicy sizePolicy2(static_cast<QSizePolicy::Policy>(4), static_cast<QSizePolicy::Policy>(0));
+    QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Fixed);
     sizePolicy2.setHorizontalStretch(0);
     sizePolicy2.setVerticalStretch(0);
     sizePolicy2.setHeightForWidth(tempoBox->sizePolicy().hasHeightForWidth());
     tempoBox->setSizePolicy(sizePolicy2);
     tempoBox->setMinimumSize(QSize(50, 0));
-    tempoBox->setMaximum(300);
     tempoBox->setMinimum(20);
+    tempoBox->setMaximum(300);
     tempoBox->setValue(120);
 
     hboxLayout1->addWidget(tempoBox);
@@ -152,20 +149,50 @@ public:
 
     vboxLayout->addWidget(upperFrame);
 
+    frame_6 = new QFrame(frame);
+    frame_6->setObjectName(QString::fromUtf8("frame_6"));
+    frame_6->setFrameShape(QFrame::StyledPanel);
+    frame_6->setFrameShadow(QFrame::Raised);
+    hboxLayout2 = new QHBoxLayout(frame_6);
+    hboxLayout2->setObjectName(QString::fromUtf8("hboxLayout2"));
+    scaleRoot = new QComboBox(frame_6);
+    scaleRoot->setObjectName(QString::fromUtf8("scaleRoot"));
+    sizePolicy2.setHeightForWidth(scaleRoot->sizePolicy().hasHeightForWidth());
+    scaleRoot->setSizePolicy(sizePolicy2);
+
+    hboxLayout2->addWidget(scaleRoot);
+
+    scaleType = new QComboBox(frame_6);
+    scaleType->setObjectName(QString::fromUtf8("scaleType"));
+    scaleType->setEnabled(false);
+    QSizePolicy sizePolicy3(QSizePolicy::MinimumExpanding, QSizePolicy::Fixed);
+    sizePolicy3.setHorizontalStretch(0);
+    sizePolicy3.setVerticalStretch(0);
+    sizePolicy3.setHeightForWidth(scaleType->sizePolicy().hasHeightForWidth());
+    scaleType->setSizePolicy(sizePolicy3);
+
+    hboxLayout2->addWidget(scaleType);
+
+    scaleMode = new QComboBox(frame_6);
+    scaleMode->setObjectName(QString::fromUtf8("scaleMode"));
+    scaleMode->setEnabled(false);
+
+    hboxLayout2->addWidget(scaleMode);
+
+
+    vboxLayout->addWidget(frame_6);
+
     frame_2 = new QFrame(frame);
     frame_2->setObjectName(QString::fromUtf8("frame_2"));
     frame_2->setFrameShape(QFrame::Panel);
     frame_2->setFrameShadow(QFrame::Raised);
     vboxLayout1 = new QVBoxLayout(frame_2);
-#ifndef Q_OS_MAC
     vboxLayout1->setSpacing(6);
-#endif
-#ifndef Q_OS_MAC
-    vboxLayout1->setMargin(9);
-#endif
     vboxLayout1->setObjectName(QString::fromUtf8("vboxLayout1"));
+    vboxLayout1->setContentsMargins(9, 9, 9, 9);
     arpBox = new QListWidget(frame_2);
     arpBox->setObjectName(QString::fromUtf8("arpBox"));
+    arpBox->setLayoutDirection(Qt::LeftToRight);
 
     vboxLayout1->addWidget(arpBox);
 
@@ -173,31 +200,27 @@ public:
     frame_3->setObjectName(QString::fromUtf8("frame_3"));
     frame_3->setFrameShape(QFrame::StyledPanel);
     frame_3->setFrameShadow(QFrame::Raised);
-    hboxLayout2 = new QHBoxLayout(frame_3);
-#ifndef Q_OS_MAC
-    hboxLayout2->setSpacing(6);
-#endif
-#ifndef Q_OS_MAC
-    hboxLayout2->setMargin(9);
-#endif
-    hboxLayout2->setObjectName(QString::fromUtf8("hboxLayout2"));
+    hboxLayout3 = new QHBoxLayout(frame_3);
+    hboxLayout3->setSpacing(6);
+    hboxLayout3->setObjectName(QString::fromUtf8("hboxLayout3"));
+    hboxLayout3->setContentsMargins(9, 9, 9, 9);
     upButton = new QPushButton(frame_3);
     upButton->setObjectName(QString::fromUtf8("upButton"));
     upButton->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/1uparrow.png")));
 
-    hboxLayout2->addWidget(upButton);
+    hboxLayout3->addWidget(upButton);
 
     downButton = new QPushButton(frame_3);
     downButton->setObjectName(QString::fromUtf8("downButton"));
     downButton->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/1downarrow.png")));
 
-    hboxLayout2->addWidget(downButton);
+    hboxLayout3->addWidget(downButton);
 
     deleteButton = new QPushButton(frame_3);
     deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
     deleteButton->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/remove.png")));
 
-    hboxLayout2->addWidget(deleteButton);
+    hboxLayout3->addWidget(deleteButton);
 
 
     vboxLayout1->addWidget(frame_3);
@@ -206,37 +229,33 @@ public:
     frame_4->setObjectName(QString::fromUtf8("frame_4"));
     frame_4->setFrameShape(QFrame::StyledPanel);
     frame_4->setFrameShadow(QFrame::Raised);
-    hboxLayout3 = new QHBoxLayout(frame_4);
-#ifndef Q_OS_MAC
-    hboxLayout3->setSpacing(6);
-#endif
-#ifndef Q_OS_MAC
-    hboxLayout3->setMargin(9);
-#endif
-    hboxLayout3->setObjectName(QString::fromUtf8("hboxLayout3"));
+    hboxLayout4 = new QHBoxLayout(frame_4);
+    hboxLayout4->setSpacing(6);
+    hboxLayout4->setObjectName(QString::fromUtf8("hboxLayout4"));
+    hboxLayout4->setContentsMargins(9, 9, 9, 9);
     pauseButton = new QPushButton(frame_4);
     pauseButton->setObjectName(QString::fromUtf8("pauseButton"));
     pauseButton->setCheckable(true);
 
-    hboxLayout3->addWidget(pauseButton);
+    hboxLayout4->addWidget(pauseButton);
 
     noteCombo = new QSpinBox(frame_4);
     noteCombo->setObjectName(QString::fromUtf8("noteCombo"));
-    noteCombo->setMaximum(24);
     noteCombo->setMinimum(-24);
+    noteCombo->setMaximum(24);
 
-    hboxLayout3->addWidget(noteCombo);
+    hboxLayout4->addWidget(noteCombo);
 
     lengthCombo = new QComboBox(frame_4);
     lengthCombo->setObjectName(QString::fromUtf8("lengthCombo"));
 
-    hboxLayout3->addWidget(lengthCombo);
+    hboxLayout4->addWidget(lengthCombo);
 
     addElement = new QPushButton(frame_4);
     addElement->setObjectName(QString::fromUtf8("addElement"));
     addElement->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/add.png")));
 
-    hboxLayout3->addWidget(addElement);
+    hboxLayout4->addWidget(addElement);
 
 
     vboxLayout1->addWidget(frame_4);
@@ -252,13 +271,9 @@ public:
     frame_5->setFrameShape(QFrame::StyledPanel);
     frame_5->setFrameShadow(QFrame::Raised);
     vboxLayout2 = new QVBoxLayout(frame_5);
-#ifndef Q_OS_MAC
     vboxLayout2->setSpacing(6);
-#endif
-#ifndef Q_OS_MAC
-    vboxLayout2->setMargin(9);
-#endif
     vboxLayout2->setObjectName(QString::fromUtf8("vboxLayout2"));
+    vboxLayout2->setContentsMargins(9, 9, 9, 9);
     label = new QLabel(frame_5);
     label->setObjectName(QString::fromUtf8("label"));
 
@@ -275,7 +290,7 @@ public:
     MainWindow->setCentralWidget(centralwidget);
     menubar = new QMenuBar(MainWindow);
     menubar->setObjectName(QString::fromUtf8("menubar"));
-    menubar->setGeometry(QRect(0, 0, 570, 28));
+    menubar->setGeometry(QRect(0, 0, 570, 29));
     menuFile = new QMenu(menubar);
     menuFile->setObjectName(QString::fromUtf8("menuFile"));
     menuHelp_2 = new QMenu(menubar);
@@ -322,6 +337,28 @@ public:
     bypassButton->setToolTip(QApplication::translate("MainWindow", "Pass data through without modification", 0, QApplication::UnicodeUTF8));
     bypassButton->setText(QApplication::translate("MainWindow", "Bypass", 0, QApplication::UnicodeUTF8));
     tempoBox->setToolTip(QApplication::translate("MainWindow", "Tempo", 0, QApplication::UnicodeUTF8));
+    scaleRoot->clear();
+    scaleRoot->insertItems(0, QStringList()
+     << QApplication::translate("MainWindow", "Off", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "C", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "C#", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "D", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "D#", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "E", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "F", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "F#", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "G", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "G#", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "A", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "A#", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "B", 0, QApplication::UnicodeUTF8)
+    );
+    scaleMode->clear();
+    scaleMode->insertItems(0, QStringList()
+     << QApplication::translate("MainWindow", "Up", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "Down", 0, QApplication::UnicodeUTF8)
+     << QApplication::translate("MainWindow", "Random", 0, QApplication::UnicodeUTF8)
+    );
     upButton->setText(QApplication::translate("MainWindow", "Move Up", 0, QApplication::UnicodeUTF8));
     downButton->setText(QApplication::translate("MainWindow", "Move Down", 0, QApplication::UnicodeUTF8));
     deleteButton->setText(QApplication::translate("MainWindow", "Delete", 0, QApplication::UnicodeUTF8));

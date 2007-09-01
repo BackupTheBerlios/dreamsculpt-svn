@@ -1,9 +1,9 @@
 #CONFIG=release qt thread x11 uic
 VERSION = 0.1
 FORMS = mainwindow.ui
-SOURCES = main.cpp alsamidi.cpp mainwindow.cpp arpeggiator.cpp
+SOURCES = main.cpp alsamidi.cpp mainwindow.cpp arpeggiator.cpp scale.cpp
 RESOURCES = gfx.qrc
-HEADERS = alsamidi.h mainwindow.h arpeggiator.h port.h
+HEADERS = alsamidi.h mainwindow.h arpeggiator.h port.h scale.h
 LIBS += -lasound
 target.path = /usr/local/bin
 INSTALLS += target

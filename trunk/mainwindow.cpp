@@ -1,4 +1,5 @@
 #include "mainwindow.h"
+#include "scale.h"
 #include <QDataStream>
 #include <QFile>
 
@@ -7,6 +8,13 @@ MainWindow::MainWindow(QWidget *parent){
 	tempo = 120;
 	mid->setTempo(tempo);
 	loadRecent();
+	for(int i = 0;;i++){
+		Scale *tmp = sf->getScale(i);
+		if(!tmp)
+			break;
+		scaleType->addItem(tmp->getName());
+	}
+
 	if(parent)
 		return;
 }

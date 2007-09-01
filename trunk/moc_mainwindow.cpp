@@ -1,8 +1,8 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Fri Aug 31 15:13:24 2007
-**      by: The Qt Meta Object Compiler version 59 (Qt 4.3.1)
+** Created: Sat Sep 1 23:01:51 2007
+**      by: The Qt Meta Object Compiler version 59 (Qt 4.3.0)
 **
 ** WARNING! All changes made in this file will be lost!
 *****************************************************************************/
@@ -11,7 +11,7 @@
 #if !defined(Q_MOC_OUTPUT_REVISION)
 #error "The header file 'mainwindow.h' doesn't include <QObject>."
 #elif Q_MOC_OUTPUT_REVISION != 59
-#error "This file was generated using the moc from 4.3.1. It"
+#error "This file was generated using the moc from 4.3.0. It"
 #error "cannot be used with the include files from this version of Qt."
 #error "(The moc has changed too much.)"
 #endif
@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // revision
        0,       // classname
        0,    0, // classinfo
-      11,   10, // methods
+      14,   10, // methods
        0,    0, // properties
        0,    0, // enums/sets
 
@@ -38,6 +38,9 @@ static const uint qt_meta_data_MainWindow[] = {
      229,   11,   11,   11, 0x08,
      251,   11,   11,   11, 0x08,
      281,  275,   11,   11, 0x08,
+     319,  275,   11,   11, 0x08,
+     357,  275,   11,   11, 0x08,
+     401,  395,   11,   11, 0x08,
 
        0        // eod
 };
@@ -52,6 +55,9 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_addElement_clicked()\0"
     "on_deleteButton_clicked()\0"
     "on_upButton_clicked()\0on_downButton_clicked()\0"
+    "index\0on_scaleRoot_currentIndexChanged(int)\0"
+    "on_scaleType_currentIndexChanged(int)\0"
+    "on_scaleMode_currentIndexChanged(int)\0"
     "state\0on_bypassButton_clicked(bool)\0"
 };
 
@@ -90,9 +96,12 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 7: on_deleteButton_clicked(); break;
         case 8: on_upButton_clicked(); break;
         case 9: on_downButton_clicked(); break;
-        case 10: on_bypassButton_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 10: on_scaleRoot_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 11: on_scaleType_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 12: on_scaleMode_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
+        case 13: on_bypassButton_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         }
-        _id -= 11;
+        _id -= 14;
     }
     return _id;
 }

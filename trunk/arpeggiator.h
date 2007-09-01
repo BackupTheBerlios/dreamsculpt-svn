@@ -21,6 +21,7 @@ class Arpeggiator {
 	int velocity;
 	int channel;
 	int cnote;
+	int lastnote;
 
 	double nextnote;
 

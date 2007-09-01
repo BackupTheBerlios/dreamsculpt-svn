@@ -8,6 +8,7 @@
 #include "arpeggiator.h"
 #include <math.h>
 #include "alsamidi.h"
+#include "scale.h"
 
 
 class MainWindow : public QMainWindow, private Ui::MainWindow {
@@ -134,6 +135,29 @@ class MainWindow : public QMainWindow, private Ui::MainWindow {
 		arp.insert(i + 1, tmp);
 		redrawBox();
 		arpBox->setCurrentRow(i + 1);
+	}
+
+	void on_scaleRoot_currentIndexChanged(int index){
+		if(index){
+			scaleType->setDisabled(false);
+			scaleMode->setDisabled(false);
+			sf->setActive(true);
+			sf->setRoot(index - 1);
+		} else {
+			scaleType->setDisabled(true);
+			scaleMode->setDisabled(true);
+			sf->setActive(false);
+		}
+		
+	}
+
+	void on_scaleType_currentIndexChanged(int index){
+		sf->setScale(index);
+	}
+
+
+	void on_scaleMode_currentIndexChanged(int index){
+		sf->setMethod(index);
 	}
 
 	void on_bypassButton_clicked(bool state) {

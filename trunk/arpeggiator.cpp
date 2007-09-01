@@ -1,4 +1,5 @@
 #include <arpeggiator.h>
+#include "scale.h"
 #include "alsamidi.h"
 
 Arpeggiator::Arpeggiator(int note, int velocity, int channel, int tempo, QList<ArpNote> arp) {
@@ -12,7 +13,7 @@ Arpeggiator::Arpeggiator(int note, int velocity, int channel, int tempo, QList<A
 
 	// Trigger first note
 	if(!pattern[cnote].pause)
-		mid->noteOn(channel, note + pattern[cnote].note, velocity);
+		mid->noteOn(channel, lastnote = sf->findNote(note + pattern[cnote].note), velocity);
 	
 	// Calculate time until next next note change
 	nextnote = calcNextNote(tme());
@@ -28,7 +29,7 @@ double Arpeggiator::update() {
 		return nextnote;
 
 	if(!pattern[cnote].pause)
-		mid->noteOff(channel, note + pattern[cnote].note);
+		mid->noteOff(channel, lastnote);
 
 	if(cnote + 1 >= pattern.size())
 		cnote = 0;
@@ -36,7 +37,7 @@ double Arpeggiator::update() {
 		cnote++;
 
 	if(!pattern[cnote].pause)
-		mid->noteOn(channel, note + pattern[cnote].note, velocity);
+		mid->noteOn(channel, lastnote = sf->findNote(note + pattern[cnote].note), velocity);
 
 	nextnote = calcNextNote(nextnote);
 	return nextnote;
@@ -44,5 +45,5 @@ double Arpeggiator::update() {
 
 Arpeggiator::~Arpeggiator() {
 	// Aaah... Dying... I will take everyone with me!
-	mid->noteOff(channel, pattern[cnote].note + note);
+	mid->noteOff(channel, lastnote);
 }
