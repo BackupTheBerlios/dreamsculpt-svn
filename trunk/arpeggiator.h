@@ -29,6 +29,7 @@ class Arpeggiator {
 	int qtempo;
 	QList <ArpNote> qpattern;
 	bool queued;
+	bool zombie;
 
 	double nextnote;
 
@@ -47,6 +48,8 @@ class Arpeggiator {
 	void rmQueue() { queued = false; }
 	double update();
 	int getNote() { return note; }
+	bool isZombie() { return zombie; }
+	void setZombie(bool z) { zombie = z; }
 	~Arpeggiator();
 
 };

@@ -8,6 +8,7 @@ Arpeggiator::Arpeggiator(int note, int velocity, int channel, int tempo, QList<A
 	this->channel = channel;
 	this->tempo = tempo;
 	this->pattern = arp;
+	this->zombie = false;
 
 	cnote = 0;
 

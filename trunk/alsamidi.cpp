@@ -65,9 +65,11 @@ void AlsaMidi::filterData() {
 
 		if(ev->type == SND_SEQ_EVENT_NOTEOFF){
 			for(int i = 0; i < arpeggiators.size(); i++){
-				if(
-						arpeggiators[i]->getNote() == ev->data.note.note && 
-						!arpeggiators[i]->isQueued()) {
+				if(arpeggiators[i]->getNote() == ev->data.note.note) {
+					if(arpeggiators[i]->isQueued()) {
+						arpeggiators[i]->setZombie(true);
+						continue;
+					}
 					QMutexLocker locker(&imutex);
 					Arpeggiator *tmp = arpeggiators[i];
 					arpeggiators.removeAt(i);
@@ -76,6 +78,12 @@ void AlsaMidi::filterData() {
 						arpeggiators[i]->isQueued() &&
 						arpeggiators[i]->getQueuedNote() == ev->data.note.note) {
 					arpeggiators[i]->rmQueue();	
+					if(arpeggiators[i]->isZombie()){
+						QMutexLocker locker(&imutex);
+						Arpeggiator *tmp = arpeggiators[i];
+						arpeggiators.removeAt(i);
+						delete tmp;
+					}
 				}
 
 			}
