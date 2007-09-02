@@ -85,15 +85,18 @@ int ScaleFinder::findNote(int note){
 	if(!active || scale->hasNote(note - root))
 		return note;
 	
+	int m;
+
 	if(method == METHOD_RANDOM)
-		method = (rand()%2?METHOD_UP:METHOD_DOWN);
+		m = (rand()%2?METHOD_UP:METHOD_DOWN);
+	else
+		m = method;
 
 	for(int i = 1; i < 12; i++){
-		note += (method==METHOD_UP)?i:-i;
+		note += (m==METHOD_UP)?i:-i;
 		if(scale->hasNote(note - root))
 			break;
 	}
-
 	return note;
 }
 

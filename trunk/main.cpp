@@ -32,6 +32,7 @@ class ARPProcessor : public QThread {
 
 
 int main(int argc, char **argv){
+	srand(1);
 
 	QApplication app(argc, argv);
 
