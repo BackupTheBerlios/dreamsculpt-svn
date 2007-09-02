@@ -86,6 +86,7 @@ int ScaleFinder::findNote(int note){
 		return note;
 	
 	int m;
+	
 
 	if(method == METHOD_RANDOM)
 		m = (rand()%2?METHOD_UP:METHOD_DOWN);
@@ -93,7 +94,7 @@ int ScaleFinder::findNote(int note){
 		m = method;
 
 	for(int i = 1; i < 12; i++){
-		note += (m==METHOD_UP)?i:-i;
+		note += (m==METHOD_UP)?1:-1;
 		if(scale->hasNote(note - root))
 			break;
 	}

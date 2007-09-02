@@ -101,8 +101,6 @@ void AlsaMidi::filterData() {
 }
 
 void AlsaMidi::noteOn(int channel, int note, int velocity){
-	char *notes[] = {"C", "C#", "D", "D#", "E", "F", "F#", "G", "G#", "A", "A#", "B"};
-	printf("Note: %s\n", notes[note % 12]);
 	snd_seq_event_t ev;
 	snd_seq_ev_clear(&ev);
     snd_seq_ev_set_source(&ev, oport);
