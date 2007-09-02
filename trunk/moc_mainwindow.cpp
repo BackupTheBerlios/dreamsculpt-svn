@@ -1,7 +1,7 @@
 /****************************************************************************
 ** Meta object code from reading C++ file 'mainwindow.h'
 **
-** Created: Sat Sep 1 23:01:51 2007
+** Created: Sun Sep 2 13:45:09 2007
 **      by: The Qt Meta Object Compiler version 59 (Qt 4.3.0)
 **
 ** WARNING! All changes made in this file will be lost!
@@ -22,7 +22,7 @@ static const uint qt_meta_data_MainWindow[] = {
        1,       // revision
        0,       // classname
        0,    0, // classinfo
-      14,   10, // methods
+      15,   10, // methods
        0,    0, // properties
        0,    0, // enums/sets
 
@@ -41,6 +41,7 @@ static const uint qt_meta_data_MainWindow[] = {
      319,  275,   11,   11, 0x08,
      357,  275,   11,   11, 0x08,
      401,  395,   11,   11, 0x08,
+     431,  395,   11,   11, 0x08,
 
        0        // eod
 };
@@ -59,6 +60,7 @@ static const char qt_meta_stringdata_MainWindow[] = {
     "on_scaleType_currentIndexChanged(int)\0"
     "on_scaleMode_currentIndexChanged(int)\0"
     "state\0on_bypassButton_clicked(bool)\0"
+    "on_syncMonoButton_clicked(bool)\0"
 };
 
 const QMetaObject MainWindow::staticMetaObject = {
@@ -100,8 +102,9 @@ int MainWindow::qt_metacall(QMetaObject::Call _c, int _id, void **_a)
         case 11: on_scaleType_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 12: on_scaleMode_currentIndexChanged((*reinterpret_cast< int(*)>(_a[1]))); break;
         case 13: on_bypassButton_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
+        case 14: on_syncMonoButton_clicked((*reinterpret_cast< bool(*)>(_a[1]))); break;
         }
-        _id -= 14;
+        _id -= 15;
     }
     return _id;
 }

@@ -118,6 +118,22 @@
            </widget>
           </item>
           <item>
+           <widget class="QPushButton" name="syncMonoButton" >
+            <property name="sizePolicy" >
+             <sizepolicy vsizetype="Fixed" hsizetype="Maximum" >
+              <horstretch>0</horstretch>
+              <verstretch>0</verstretch>
+             </sizepolicy>
+            </property>
+            <property name="text" >
+             <string>SyncMono</string>
+            </property>
+            <property name="checkable" >
+             <bool>true</bool>
+            </property>
+           </widget>
+          </item>
+          <item>
            <widget class="QSpinBox" name="tempoBox" >
             <property name="sizePolicy" >
              <sizepolicy vsizetype="Fixed" hsizetype="Maximum" >

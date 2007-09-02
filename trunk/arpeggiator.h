@@ -23,6 +23,13 @@ class Arpeggiator {
 	int cnote;
 	int lastnote;
 
+	int qnote;
+	int qvelocity;
+	int qchannel;
+	int qtempo;
+	QList <ArpNote> qpattern;
+	bool queued;
+
 	double nextnote;
 
 	double timer;
@@ -30,9 +37,14 @@ class Arpeggiator {
 	int tempo;
 	QList <ArpNote> pattern;
 	double calcNextNote(double);
+	void queNext();
 
 	public:
 	Arpeggiator(int note, int velocity, int channel, int tempo, QList<ArpNote> arp);
+	void queArp(int note, int velocity, int channel, int tempo, QList<ArpNote> arp);
+	bool isQueued() { return queued; }
+	bool getQueuedNote() { return qnote; }
+	void rmQueue() { queued = false; }
 	double update();
 	int getNote() { return note; }
 	~Arpeggiator();

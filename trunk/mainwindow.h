@@ -163,6 +163,10 @@ class MainWindow : public QMainWindow, private Ui::MainWindow {
 	void on_bypassButton_clicked(bool state) {
 		mid->setBypass(state);
 	}
+
+	void on_syncMonoButton_clicked(bool state) {
+		mid->setSyncMono(state);
+	}
 };
 
 

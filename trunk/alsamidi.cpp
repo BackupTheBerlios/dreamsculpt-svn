@@ -56,18 +56,28 @@ void AlsaMidi::filterData() {
 			snd_seq_ev_note nte;
 			nte = ev->data.note;
 			QMutexLocker locker(&imutex);
-			arpeggiators.push_back(new Arpeggiator(nte.note, nte.velocity, nte.channel, tempo, pattern));
+			if(syncmono && arpeggiators.size())
+				arpeggiators[0]->queArp(nte.note, nte.velocity, nte.channel, tempo, pattern);
+			else
+				arpeggiators.push_back(new Arpeggiator(nte.note, nte.velocity, nte.channel, tempo, pattern));
 			continue;
 		}
 
 		if(ev->type == SND_SEQ_EVENT_NOTEOFF){
 			for(int i = 0; i < arpeggiators.size(); i++){
-				if(arpeggiators[i]->getNote() == ev->data.note.note) {
+				if(
+						arpeggiators[i]->getNote() == ev->data.note.note && 
+						!arpeggiators[i]->isQueued()) {
 					QMutexLocker locker(&imutex);
 					Arpeggiator *tmp = arpeggiators[i];
 					arpeggiators.removeAt(i);
 					delete tmp;
+				} else if (
+						arpeggiators[i]->isQueued() &&
+						arpeggiators[i]->getQueuedNote() == ev->data.note.note) {
+					arpeggiators[i]->rmQueue();	
 				}
+
 			}
 			continue;
 		}
@@ -118,6 +128,11 @@ void AlsaMidi::setBypass(bool state){
 	bypass = state;
 }
 
+void AlsaMidi::setSyncMono(bool state){
+	syncmono = state;
+}
+
+
 
 // Constructor
 AlsaMidi::AlsaMidi(){
@@ -126,4 +141,6 @@ AlsaMidi::AlsaMidi(){
 	iport = getWritePort();
 	oport = getReadPort();
 	bypass = false;
+	syncmono = false;
+	newnote = -1;
 }

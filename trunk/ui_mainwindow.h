@@ -1,7 +1,7 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Sat Sep 1 22:24:28 2007
+** Created: Sun Sep 2 13:41:44 2007
 **      by: Qt User Interface Compiler version 4.3.0
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
@@ -42,6 +42,7 @@ public:
     QFrame *upperFrame;
     QHBoxLayout *hboxLayout1;
     QPushButton *bypassButton;
+    QPushButton *syncMonoButton;
     QSpinBox *tempoBox;
     QFrame *frame_6;
     QHBoxLayout *hboxLayout2;
@@ -132,11 +133,19 @@ public:
 
     hboxLayout1->addWidget(bypassButton);
 
-    tempoBox = new QSpinBox(upperFrame);
-    tempoBox->setObjectName(QString::fromUtf8("tempoBox"));
+    syncMonoButton = new QPushButton(upperFrame);
+    syncMonoButton->setObjectName(QString::fromUtf8("syncMonoButton"));
     QSizePolicy sizePolicy2(QSizePolicy::Maximum, QSizePolicy::Fixed);
     sizePolicy2.setHorizontalStretch(0);
     sizePolicy2.setVerticalStretch(0);
+    sizePolicy2.setHeightForWidth(syncMonoButton->sizePolicy().hasHeightForWidth());
+    syncMonoButton->setSizePolicy(sizePolicy2);
+    syncMonoButton->setCheckable(true);
+
+    hboxLayout1->addWidget(syncMonoButton);
+
+    tempoBox = new QSpinBox(upperFrame);
+    tempoBox->setObjectName(QString::fromUtf8("tempoBox"));
     sizePolicy2.setHeightForWidth(tempoBox->sizePolicy().hasHeightForWidth());
     tempoBox->setSizePolicy(sizePolicy2);
     tempoBox->setMinimumSize(QSize(50, 0));
@@ -336,6 +345,7 @@ public:
     actionSave_As->setText(QApplication::translate("MainWindow", "Save As...", 0, QApplication::UnicodeUTF8));
     bypassButton->setToolTip(QApplication::translate("MainWindow", "Pass data through without modification", 0, QApplication::UnicodeUTF8));
     bypassButton->setText(QApplication::translate("MainWindow", "Bypass", 0, QApplication::UnicodeUTF8));
+    syncMonoButton->setText(QApplication::translate("MainWindow", "SyncMono", 0, QApplication::UnicodeUTF8));
     tempoBox->setToolTip(QApplication::translate("MainWindow", "Tempo", 0, QApplication::UnicodeUTF8));
     scaleRoot->clear();
     scaleRoot->insertItems(0, QStringList()

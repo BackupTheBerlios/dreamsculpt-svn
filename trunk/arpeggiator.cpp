@@ -11,6 +11,8 @@ Arpeggiator::Arpeggiator(int note, int velocity, int channel, int tempo, QList<A
 
 	cnote = 0;
 
+	this->queued = false;
+
 	// Trigger first note
 	if(!pattern[cnote].pause)
 		mid->noteOn(channel, lastnote = sf->findNote(note + pattern[cnote].note), velocity);
@@ -19,9 +21,27 @@ Arpeggiator::Arpeggiator(int note, int velocity, int channel, int tempo, QList<A
 	nextnote = calcNextNote(tme());
 }
 
+void Arpeggiator::queArp(int note, int velocity, int channel, int tempo, QList<ArpNote> arp) {
+	this->qnote = note;
+	this->qvelocity = velocity;
+	this->qchannel = channel;
+	this->qtempo = tempo;
+	this->qpattern = arp;
+	this->queued = true;
+}
+
 double Arpeggiator::calcNextNote(double time) {
 	double nlen = 60.0 / tempo * pattern[cnote].length;
 	return time + nlen;
+}
+
+void Arpeggiator::queNext(){
+	note = qnote;
+	velocity = qvelocity;
+	channel = qchannel;
+	tempo = qtempo;
+	pattern = qpattern;
+	this->queued = false;
 }
 
 double Arpeggiator::update() {
@@ -31,9 +51,11 @@ double Arpeggiator::update() {
 	if(!pattern[cnote].pause)
 		mid->noteOff(channel, lastnote);
 
-	if(cnote + 1 >= pattern.size())
+	if(cnote + 1 >= pattern.size()){
 		cnote = 0;
-	else
+		if(queued)
+			queNext();
+	} else
 		cnote++;
 
 	if(!pattern[cnote].pause)

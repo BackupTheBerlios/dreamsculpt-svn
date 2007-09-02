@@ -17,6 +17,9 @@ class AlsaMidi {
 	int tempo;
 	bool bypass;
 
+	bool syncmono;
+	int newnote;
+
 	QList<ArpNote> pattern;
 	QList<Arpeggiator *> arpeggiators;
 
@@ -30,6 +33,7 @@ class AlsaMidi {
 	void setPattern(QList<ArpNote> pat);
 	double updateArpeggiators();
 	void setBypass(bool state);
+	void setSyncMono(bool state);
 	void filterData();
 	AlsaMidi();
 };
