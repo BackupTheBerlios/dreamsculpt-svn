@@ -55,7 +55,6 @@ void AlsaMidi::filterData() {
 		if(ev->type == SND_SEQ_EVENT_NOTEON){
 			snd_seq_ev_note nte;
 			nte = ev->data.note;
-			QMutexLocker locker(&imutex);
 			if(syncmono && arpeggiators.size())
 				arpeggiators[0]->queArp(nte.note, nte.velocity, nte.channel, tempo, pattern);
 			else
@@ -70,7 +69,6 @@ void AlsaMidi::filterData() {
 						arpeggiators[i]->setZombie(true);
 						continue;
 					}
-					QMutexLocker locker(&imutex);
 					Arpeggiator *tmp = arpeggiators[i];
 					arpeggiators.removeAt(i);
 					delete tmp;
@@ -78,11 +76,8 @@ void AlsaMidi::filterData() {
 							arpeggiators[i]->isQueued() &&
 							(arpeggiators[i]->getQueuedNote() == ev->data.note.note)
 						  ) {
-					printf("Boo.\n");
 					arpeggiators[i]->rmQueue();	
 					if(arpeggiators[i]->isZombie()) {
-						printf("Zombie.\n");
-						QMutexLocker locker(&imutex);
 						Arpeggiator *tmp = arpeggiators[i];
 						arpeggiators.removeAt(i);
 						delete tmp;
@@ -126,12 +121,10 @@ void AlsaMidi::noteOff(int channel, int note){
 }
 
 void AlsaMidi::setTempo(int tempo){
-	QMutexLocker locker(&imutex);
 	this->tempo = tempo;
 }
 
 void AlsaMidi::setPattern(QList<ArpNote> pat){
-	QMutexLocker locker(&imutex);
 	this->pattern = pat;
 }
 
