@@ -44,7 +44,7 @@ class Arpeggiator {
 	Arpeggiator(int note, int velocity, int channel, int tempo, QList<ArpNote> arp);
 	void queArp(int note, int velocity, int channel, int tempo, QList<ArpNote> arp);
 	bool isQueued() { return queued; }
-	bool getQueuedNote() { return qnote; }
+	int getQueuedNote() { return qnote; }
 	void rmQueue() { queued = false; }
 	double update();
 	int getNote() { return note; }

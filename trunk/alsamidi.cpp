@@ -75,17 +75,20 @@ void AlsaMidi::filterData() {
 					arpeggiators.removeAt(i);
 					delete tmp;
 				} else if (
-						arpeggiators[i]->isQueued() &&
-						arpeggiators[i]->getQueuedNote() == ev->data.note.note) {
+							arpeggiators[i]->isQueued() &&
+							(arpeggiators[i]->getQueuedNote() == ev->data.note.note)
+						  ) {
+					printf("Boo.\n");
 					arpeggiators[i]->rmQueue();	
-					if(arpeggiators[i]->isZombie()){
+					if(arpeggiators[i]->isZombie()) {
+						printf("Zombie.\n");
 						QMutexLocker locker(&imutex);
 						Arpeggiator *tmp = arpeggiators[i];
 						arpeggiators.removeAt(i);
 						delete tmp;
+						continue;
 					}
 				}
-
 			}
 			continue;
 		}
