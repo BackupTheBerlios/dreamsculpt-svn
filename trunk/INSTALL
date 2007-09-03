@@ -1,0 +1,19 @@
+
+Basic requirements
+==================
+
+* QT 4.1 or greater.
+* Alsalibs 1.0 or greater.
+
+Building
+========
+
+1. Make sure you have QT and and alsa libraries, and their header files installed.
+2. Make sure you have basic QT toolset (qmake, uic, moc) installed.
+3. Type "qmake", which will build a Makefile for your platform.
+4. Type "make".
+5. Type "make install" to install the program to path.
+
+All commands without quotes.
+
+
