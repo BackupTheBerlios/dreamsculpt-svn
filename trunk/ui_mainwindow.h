@@ -1,8 +1,8 @@
 /********************************************************************************
 ** Form generated from reading ui file 'mainwindow.ui'
 **
-** Created: Sun Sep 2 13:41:44 2007
-**      by: Qt User Interface Compiler version 4.3.0
+** Created: Mon Sep 3 13:52:21 2007
+**      by: Qt User Interface Compiler version 4.3.1
 **
 ** WARNING! All changes made in this file will be lost when recompiling ui file!
 ********************************************************************************/
@@ -75,9 +75,7 @@ public:
     {
     if (MainWindow->objectName().isEmpty())
         MainWindow->setObjectName(QString::fromUtf8("MainWindow"));
-    QSize size(570, 498);
-    size = size.expandedTo(MainWindow->minimumSizeHint());
-    MainWindow->resize(size);
+    MainWindow->resize(570, 498);
     MainWindow->setWindowIcon(QIcon(QString::fromUtf8(":/new/prefix1/icon.png")));
     actionQuit = new QAction(MainWindow);
     actionQuit->setObjectName(QString::fromUtf8("actionQuit"));
@@ -215,19 +213,19 @@ public:
     hboxLayout3->setContentsMargins(9, 9, 9, 9);
     upButton = new QPushButton(frame_3);
     upButton->setObjectName(QString::fromUtf8("upButton"));
-    upButton->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/1uparrow.png")));
+    upButton->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/gfx/1uparrow.png")));
 
     hboxLayout3->addWidget(upButton);
 
     downButton = new QPushButton(frame_3);
     downButton->setObjectName(QString::fromUtf8("downButton"));
-    downButton->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/1downarrow.png")));
+    downButton->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/gfx/1downarrow.png")));
 
     hboxLayout3->addWidget(downButton);
 
     deleteButton = new QPushButton(frame_3);
     deleteButton->setObjectName(QString::fromUtf8("deleteButton"));
-    deleteButton->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/remove.png")));
+    deleteButton->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/gfx/remove.png")));
 
     hboxLayout3->addWidget(deleteButton);
 
@@ -262,7 +260,7 @@ public:
 
     addElement = new QPushButton(frame_4);
     addElement->setObjectName(QString::fromUtf8("addElement"));
-    addElement->setIcon(QIcon(QString::fromUtf8("../../../../usr/share/icons/default.kde/16x16/actions/add.png")));
+    addElement->setIcon(QIcon(QString::fromUtf8(":/new/prefix1/gfx/add.png")));
 
     hboxLayout4->addWidget(addElement);
 
@@ -299,7 +297,7 @@ public:
     MainWindow->setCentralWidget(centralwidget);
     menubar = new QMenuBar(MainWindow);
     menubar->setObjectName(QString::fromUtf8("menubar"));
-    menubar->setGeometry(QRect(0, 0, 570, 29));
+    menubar->setGeometry(QRect(0, 0, 570, 26));
     menuFile = new QMenu(menubar);
     menuFile->setObjectName(QString::fromUtf8("menuFile"));
     menuHelp_2 = new QMenu(menubar);

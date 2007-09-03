@@ -1,11 +1,15 @@
 <RCC>
     <qresource prefix="/new/prefix1" >
         <file>gfx/14.xpm</file>
+        <file>gfx/1downarrow.png</file>
+        <file>gfx/1uparrow.png</file>
         <file>gfx/2b.xpm</file>
+        <file>gfx/add.png</file>
         <file>gfx/demisemi.xpm</file>
         <file>gfx/hemidemisemi.xpm</file>
         <file>gfx/minim.xpm</file>
         <file>gfx/quaver.xpm</file>
+        <file>gfx/remove.png</file>
         <file>gfx/semibreve.xpm</file>
         <file>gfx/semiquaver.xpm</file>
         <file>icon.png</file>

@@ -347,7 +347,7 @@
                 <string>Move Up</string>
                </property>
                <property name="icon" >
-                <iconset>../../../../usr/share/icons/default.kde/16x16/actions/1uparrow.png</iconset>
+                <iconset resource="gfx.qrc" >:/new/prefix1/gfx/1uparrow.png</iconset>
                </property>
               </widget>
              </item>
@@ -357,7 +357,7 @@
                 <string>Move Down</string>
                </property>
                <property name="icon" >
-                <iconset>../../../../usr/share/icons/default.kde/16x16/actions/1downarrow.png</iconset>
+                <iconset resource="gfx.qrc" >:/new/prefix1/gfx/1downarrow.png</iconset>
                </property>
               </widget>
              </item>
@@ -367,7 +367,7 @@
                 <string>Delete</string>
                </property>
                <property name="icon" >
-                <iconset>../../../../usr/share/icons/default.kde/16x16/actions/remove.png</iconset>
+                <iconset resource="gfx.qrc" >:/new/prefix1/gfx/remove.png</iconset>
                </property>
               </widget>
              </item>
@@ -495,7 +495,7 @@
                 <string>Add</string>
                </property>
                <property name="icon" >
-                <iconset>../../../../usr/share/icons/default.kde/16x16/actions/add.png</iconset>
+                <iconset resource="gfx.qrc" >:/new/prefix1/gfx/add.png</iconset>
                </property>
               </widget>
              </item>
@@ -556,7 +556,7 @@ p, li { white-space: pre-wrap; }
      <x>0</x>
      <y>0</y>
      <width>570</width>
-     <height>29</height>
+     <height>26</height>
     </rect>
    </property>
    <widget class="QMenu" name="menuFile" >
