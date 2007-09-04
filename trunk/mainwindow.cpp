@@ -110,3 +110,4 @@ void MainWindow::addRecent(QString fname){
 	storeRecent();
 	redrawRecent();
 }
+
